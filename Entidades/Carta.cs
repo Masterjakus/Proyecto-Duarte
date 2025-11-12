@@ -3,15 +3,20 @@ using Proyecto_Duarte.Interfaces;
 
 namespace Proyecto_Duarte.Entidades;
 
-public class Carta : JCarta
+public class Carta
 {
-    public string valor { get; }
-    public string palo { get; }
-    public Carta(string valor, string palo)
-    {
-        valor = valor;
-        palo = palo;
-    }
+    
+        public string Valor { get; set; }
+        public string Palo { get; set; }
 
-    public override string ToString() => $"{valor} de {palo}";
-}
+        public Carta(string valor, string palo)
+        {
+            Valor = valor;
+            Palo = palo;
+        }
+
+        public override string ToString()
+        {
+            return $"{Valor} de {Palo}";
+        }
+ }

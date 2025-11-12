@@ -5,42 +5,46 @@ namespace Proyecto_Duarte;
 
 public class InicioDeJuego
 {
-    static void Main()
+   public class InicioDeJuego
     {
-        Console.WriteLine("Una apuestita?, en que quieres perder tu dinero?");
-        Console.WriteLine("1. UNO");
-        Console.WriteLine("2. BlackJack");
-        Console.WriteLine("Seleccciona uno (1 0 2):");
-
-        string opcion = Console.ReadLine();
-
-        JJuegoDeCartas juego = null;
-
-        if (opcion == "1")
+        public static void Main()
         {
-            juego = new Juego_Uno.juegoUno(3);
-        }
-        else if (opcion == "2")
-        {
-            juego = new Juego_BlackJack.JuegoBlackJack(3);
-        }
-        else
-        {
-            Console.WriteLine("eso no es valido pana, miedo?");
-            return;
-        }
+            Console.WriteLine("Una apuestita? ¿En qué quieres perder tu dinero?");
+            Console.WriteLine("1. UNO");
+            Console.WriteLine("2. BlackJack");
+            Console.Write("Selecciona uno (1 o 2): ");
 
-        Console.Clear();
-        Console.WriteLine("Bueno. que comience el juego!");
+            string opcion = Console.ReadLine();
+            JJuegoDeCartas juego = null;
 
-        for (int i = 1; i <= 5; i++)
-        {
-            Console.WriteLine($"ronda {i}");
-            juego.JugarRonda();
-            Console.WriteLine(new string('-', 40));
+            if (opcion == "1")
+            {
+                juego = new juego_uno.JuegoUno(3);
+            }
+            else if (opcion == "2")
+            {
+                juego = new Juego_BlackJack.JuegoBlackJack(3);
+            }
+            else
+            {
+                Console.WriteLine("Eso no es válido pana, ¿miedo?");
+                return;
+            }
+
+            Console.Clear();
+            Console.WriteLine("Bueno... ¡que comience el juego!");
+
+            for (int i = 1; i <= 5; i++)
+            {
+                Console.WriteLine($"Ronda {i}");
+                juego.JugarRonda();
+                Console.WriteLine(new string('-', 40));
+            }
+
+            Console.WriteLine("Bueno, el resultado es...");
+            juego.MostrarGanador();
+
+            Console.WriteLine("Fin del juego");
         }
-
-        Console.WriteLine("Bueno, el resultado es....");
-        juego.mostrarganador();
     }
 }

@@ -3,19 +3,32 @@ using Proyecto_Duarte.Interfaces;
 
 namespace Proyecto_Duarte.Entidades;
 
-public class Jugador : Jjugador
-{
-    public string nombre { get; }
-    public List<JCarta> mano { get; } = new();
-    public Jugador(string nombre) => nombre = nombre;
-
-    public void recibircarta(JCarta carta)
+public class Jugador
     {
-        if (carta != null)
+        public string Nombre { get; set; }
+        public List<Carta> Mano { get; set; }
+        public int Puntos { get; set; }
+
+        public Jugador(string nombre)
         {
-            mano.Add(carta);
+            Nombre = nombre;
+            Mano = new List<Carta>();
+            Puntos = 0;
+        }
+
+        public void RecibirCarta(Carta carta)
+        {
+            Mano.Add(carta);
+        }
+
+        public void LimpiarMano()
+        {
+            Mano.Clear();
+        }
+
+        public override string ToString()
+        {
+            return $"{Nombre} - Puntos: {Puntos}";
         }
     }
 
-    public override string ToString() => $"{nombre} ({mano.Count} cartas)";
-}
