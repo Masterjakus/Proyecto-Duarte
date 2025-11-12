@@ -6,5 +6,11 @@ public class Jugador
 {
     string nombre { get; }
     List<JCarta> mano { get; }
-    void recibircarta(JCarta carta);
+    void recibircarta(JCarta carta)
+    {
+        if (carta != null)
+        {
+            mano.Add(carta);
+        }
+    }
 }
