@@ -1,4 +1,6 @@
 using System;
+using Proyecto_Duarte.Entidades;
+using Proyecto_Duarte.Interfaces;
 
 namespace Proyecto_Duarte.uno;
 
@@ -8,7 +10,7 @@ public class JuegoUno
     {
         public string Color { get; }
         public CartaUNO(string valor, string color) : base(valor, color) => Color = color;
-        public override string ToString() => $"{Valor} ({Color})";
+        public override string ToString() => $"{valor} ({Color})";
     }
 
     public class MazoUNO : Mazo
@@ -22,7 +24,7 @@ public class JuegoUno
                 foreach (var valor in valores)
                     cartas.Add(new CartaUNO(valor, color));
 
-            Barajar();
+            barajar();
         }
     }
 
